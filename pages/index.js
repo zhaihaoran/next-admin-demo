@@ -1,6 +1,6 @@
 import React from "react";
 import Wrapper from "@comps/Head/Common";
-import { Link, Router } from "@route/index";
+import { Link, Router } from "@route/Index";
 
 export default () => (
     <Wrapper>
