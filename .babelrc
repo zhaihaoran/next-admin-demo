@@ -20,6 +20,13 @@
                 "extensions": ["css$", "scss$"]
             }
         ]
+        // [
+        //     "import",
+        //     {
+        //         "libraryName": "antd",
+        //         "style": "css" // or 'css'
+        //     }
+        // ]
     ],
     "ignore": []
 }

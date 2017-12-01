@@ -14,5 +14,10 @@ export default () => (
                 <a>b</a>
             </Link>
         </li>
+        <li>
+            <Link href="/admin">
+                <a>后台</a>
+            </Link>
+        </li>
     </ul>
 );
