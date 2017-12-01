@@ -50,7 +50,7 @@ class StepDump extends React.Component {
                         margin-top: 24px;
                     }`}
                 </style>
-                <Steps current={current}>
+                <Steps>
                     {steps.map(item => (
                         <Step key={item.title} title={item.title} />
                     ))}

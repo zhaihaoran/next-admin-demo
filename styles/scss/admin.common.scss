@@ -1,7 +1,8 @@
 @import "_base";
 
 .admin-layout {
-    // height: 1000px;
+    min-height: 100vh;
+    flex-direction: row;
 }
 
 .logo {
@@ -9,4 +10,18 @@
     background: #333;
     border-radius: 6px;
     margin: 16px;
+}
+
+.ant-menu-vertical {
+    width: 100%;
+    .ant-menu-item,
+    .ant-menu-submenu-title {
+        display: flex;
+        justify-content: center;
+    }
+    ul.ant-menu-vertical.ant-menu-sub {
+        position: absolute;
+        left: 70px;
+        margin-top: -40px;
+    }
 }

@@ -1,30 +1,34 @@
 {
-  "name": "demo",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js"
-  },
-  "dependencies": {
-    "antd": "^2.13.10",
-    "autoprefixer": "7.1.5",
-    "babel-plugin-import": "^1.6.2",
-    "babel-plugin-module-resolver": "^2.7.1",
-    "babel-plugin-wrap-in-js": "^1.1.0",
-    "glob": "^7.1.2",
-    "koa": "^2.0.1",
-    "koa-router": "^7.1.0",
-    "less": "^2.7.3",
-    "less-loader": "^4.0.5",
-    "next": "latest",
-    "node-sass": "^4.4.0",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-loader": "^2.0.7",
-    "raw-loader": "^0.5.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "sass-loader": "^6.0.6"
-  },
-  "devDependencies": {}
+    "name": "demo",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "node server.js",
+        "build": "next build",
+        "start": "NODE_ENV=production node server.js"
+    },
+    "dependencies": {
+        "antd": "^2.13.10",
+        "autoprefixer": "7.1.5",
+        "babel-plugin-import": "^1.6.2",
+        "babel-plugin-module-resolver": "^2.7.1",
+        "babel-plugin-wrap-in-js": "^1.1.0",
+        "dva": "^2.1.0",
+        "glob": "^7.1.2",
+        "koa": "^2.0.1",
+        "koa-router": "^7.1.0",
+        "less": "^2.7.3",
+        "less-loader": "^4.0.5",
+        "next": "latest",
+        "node-sass": "^4.4.0",
+        "postcss-easy-import": "^3.0.0",
+        "postcss-loader": "^2.0.7",
+        "raw-loader": "^0.5.1",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "react-router-dom": "^4.2.2",
+        "sass-loader": "^6.0.6",
+        "next-routes": "^1.0.17",
+        "nprogress": "^0.2.0"
+    },
+    "devDependencies": {}
 }
