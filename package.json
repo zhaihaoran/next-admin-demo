@@ -1,16 +1,20 @@
 {
-  "name": "custom-server-koa",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js"
-  },
-  "dependencies": {
-    "koa": "^2.0.1",
-    "koa-router": "^7.1.0",
-    "next": "latest",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
-  }
+    "name": "demo",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "node server.js",
+        "build": "next build",
+        "start": "NODE_ENV=production node server.js"
+    },
+    "dependencies": {
+        "koa": "^2.0.1",
+        "antd": "^2.13.10",
+        "babel-plugin-module-resolver": "^2.7.1",
+        "babel-plugin-wrap-in-js": "^1.1.0",
+        "koa-router": "^7.1.0",
+        "next": "latest",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
+    },
+    "devDependencies": {}
 }
