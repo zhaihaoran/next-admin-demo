@@ -4,7 +4,6 @@ import { Layout } from "antd";
 
 const { Content } = Layout;
 
-// import style from "@style/scss/content.scss";
 import Carousels from "@comps/Front/Carousel";
 
 const ContentWrapper = props => {

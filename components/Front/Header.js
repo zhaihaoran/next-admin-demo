@@ -1,7 +1,7 @@
 import React from "react";
 import { string } from "prop-types";
 import { Layout, Menu } from "antd";
-// import HeaderStyle from "@style/scss/header.scss";
+import HeaderStyle from "@style/scss/header.scss";
 
 const { Header } = Layout;
 const { Item } = Menu;
@@ -9,7 +9,7 @@ const { Item } = Menu;
 const FrontHeader = ({ title, url }) => {
     return (
         <Header className="tum-header">
-            {/* <style dangerouslySetInnerHTML={{ __html: HeaderStyle }} /> */}
+            <style dangerouslySetInnerHTML={{ __html: HeaderStyle }} />
             <div className="container">
                 <a className="logo" href="/note">
                     <img src="/static/favicon.ico" alt="tumen" />

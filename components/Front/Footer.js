@@ -1,7 +1,6 @@
 import React from "react";
 import { string } from "prop-types";
 import { Layout } from "antd";
-// import footerScss from "@style/scss/footer.scss";
 
 const { Footer } = Layout;
 

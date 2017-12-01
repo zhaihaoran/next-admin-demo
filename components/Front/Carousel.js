@@ -1,12 +1,12 @@
 import React from "react";
 import { string } from "prop-types";
 import { Carousel } from "antd";
-// import styleSheet from "@style/scss/carousel.scss";
+import styleSheet from "@style/scss/carousel.scss";
 
 const CarouselWrapper = props => {
     return (
         <div>
-            {/* <style dangerouslySetInnerHTML={{ __html: styleSheet }} /> */}
+            <style dangerouslySetInnerHTML={{ __html: styleSheet }} />
             <Carousel autoplay className="box">
                 <div>
                     <h3>1</h3>
