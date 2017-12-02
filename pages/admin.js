@@ -1,12 +1,9 @@
-// components
-import Wrapper from "@comps/Head/Common";
-import Layout from "@comps/Admin/Layout";
-
-import commonScss from "@style/scss/admin.common.scss";
+import Layout from "@comps/Layout/admin";
+// context
+import OrdersPage from "@comps/Admin/OrdersPage";
 
 export default props => (
-    <Wrapper>
-        <style dangerouslySetInnerHTML={{ __html: commonScss }} />
-        <Layout />
-    </Wrapper>
+    <Layout title="zhaihaoran">
+        <OrdersPage />
+    </Layout>
 );

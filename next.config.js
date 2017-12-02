@@ -5,6 +5,7 @@ const { ANALYZE } = process.env;
 
 module.exports = {
     webpack: config => {
+        config.devtool = "cheap-module-eval-source-map";
         config.module.rules.push(
             {
                 test: /\.(css|scss)/,
