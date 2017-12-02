@@ -16,8 +16,6 @@
         "cross-env": "^5.0.1",
         "dva-no-router": "^0.1.0-0",
         "glob": "^7.1.2",
-        "koa": "^2.0.1",
-        "koa-router": "^7.1.0",
         "next": "latest",
         "next-routes": "^1.0.17",
         "node-sass": "^4.4.0",
@@ -27,8 +25,12 @@
         "raw-loader": "^0.5.1",
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
-        "react-router-dom": "^4.2.2",
+        "next-redux-wrapper": "^1.0.0",
+        "redux-thunk": "^2.1.0",
+        "react-redux": "^5.0.1",
+        "redux": "^3.6.0",
         "sass-loader": "^6.0.6",
+        "redux-devtools-extension": "^2.13.2",
         "webpack-bundle-analyzer": "^2.8.2"
     },
     "devDependencies": {}

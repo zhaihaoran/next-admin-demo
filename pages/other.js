@@ -2,13 +2,12 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { initStore, startClock, addCount, serverRenderClock } from "../store";
 import withRedux from "next-redux-wrapper";
-import Page from "@comps/Page";
+import Page from "../components/Page";
 
 class Counter extends React.Component {
     static getInitialProps({ store, isServer }) {
         store.dispatch(serverRenderClock(isServer));
         store.dispatch(addCount());
-
         return { isServer };
     }
 
@@ -21,7 +20,7 @@ class Counter extends React.Component {
     }
 
     render() {
-        return <Page title="Index Page" linkTo="/other" />;
+        return <Page title="Other Page" linkTo="/order" />;
     }
 }
 
