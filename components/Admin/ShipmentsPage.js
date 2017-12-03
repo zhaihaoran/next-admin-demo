@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "@route/router";
+import Link from "@comps/Util/ActiveLink";
 
 class ShipmentsPage extends Component {
     render() {
@@ -7,7 +7,7 @@ class ShipmentsPage extends Component {
             <div className="not-found">
                 <h1>ShipmentsPage</h1>
                 <p>
-                    <Link to="/">Go back to the main page</Link>
+                    <Link href="/">Go back to the main page</Link>
                 </p>
             </div>
         );

@@ -1,23 +1,23 @@
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
 import PropTypes from "prop-types";
-import { Link } from "@route/router";
+import ActiveLink from "@comps/Util/ActiveLink";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu, Item } = Menu;
 
 const sidebarList = [
     {
-        path: "about",
+        path: "/about",
         name: "首页",
         icon: "pie-chart"
     },
     {
-        path: "users",
+        path: "/users",
         name: "活动",
         icon: "team"
     },
     {
-        path: "order",
+        path: "/orders",
         name: "课程",
         icon: "user"
     },
@@ -27,15 +27,15 @@ const sidebarList = [
         isSub: true,
         subMenu: [
             {
-                path: "order",
+                path: "/order",
                 name: "Bill"
             },
             {
-                path: "users",
+                path: "/users",
                 name: "Tom"
             },
             {
-                path: "about",
+                path: "/about",
                 name: "Alex"
             }
         ]
@@ -62,9 +62,9 @@ class Sidebar extends React.Component {
                         if (v.isSub) {
                             const list = v.subMenu.map((cell, i) => (
                                 <Item key={"subitem-" + i}>
-                                    <Link href={cell.path}>
-                                        <a>{cell.name}</a>
-                                    </Link>
+                                    <ActiveLink href={"/admin" + cell.path}>
+                                        {cell.name}
+                                    </ActiveLink>
                                 </Item>
                             ));
 
@@ -84,12 +84,10 @@ class Sidebar extends React.Component {
                         } else {
                             return (
                                 <Item key={"sidebar-" + i}>
-                                    <Link href={v.path}>
-                                        <a>
-                                            <Icon type={v.icon} />
-                                            <span>{v.name}</span>
-                                        </a>
-                                    </Link>
+                                    <ActiveLink href={"/admin" + v.path}>
+                                        <Icon type={v.icon} />
+                                        <span>{v.name}</span>
+                                    </ActiveLink>
                                 </Item>
                             );
                         }

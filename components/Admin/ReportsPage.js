@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "@route/router";
+import Link from "@comps/Util/ActiveLink";
 
 class ReportsPage extends Component {
     render() {
