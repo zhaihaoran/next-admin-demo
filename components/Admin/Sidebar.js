@@ -1,42 +1,41 @@
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
 import PropTypes from "prop-types";
-import Link from "next/link";
+import { Link } from "@route/router";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu, Item } = Menu;
 
 const sidebarList = [
     {
-        path: "/about",
+        path: "about",
         name: "首页",
         icon: "pie-chart"
     },
     {
-        path: "/users",
+        path: "users",
         name: "活动",
         icon: "team"
     },
     {
-        path: "/order",
+        path: "order",
         name: "课程",
         icon: "user"
     },
     {
-        path: "/order",
-        name: "user",
-        icon: "user",
+        name: "users",
+        icon: "users",
         isSub: true,
         subMenu: [
             {
-                path: "/order",
+                path: "order",
                 name: "Bill"
             },
             {
-                path: "/user",
+                path: "users",
                 name: "Tom"
             },
             {
-                path: "/about",
+                path: "about",
                 name: "Alex"
             }
         ]
@@ -46,13 +45,6 @@ const sidebarList = [
 class Sidebar extends React.Component {
     static async getInitialProps({ query, res }) {
         console.log(query);
-        // const post = posts.find(post => post.slug === query.slug);
-
-        // if (!post && res) {
-        //     res.statusCode = 404;
-        // }
-
-        // return { post };
     }
 
     static propTypes = {

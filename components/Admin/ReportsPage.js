@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "@route/router";
 
 class ReportsPage extends Component {
     render() {
@@ -14,4 +14,4 @@ class ReportsPage extends Component {
     }
 }
 
-export default withRouter(ReportsPage);
+export default ReportsPage;

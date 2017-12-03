@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
 
 class AccountPage extends Component {
     render() {
@@ -7,11 +6,11 @@ class AccountPage extends Component {
             <div className="not-found">
                 <h1>AccountPage</h1>
                 <p>
-                    <Link to="/">Go back to the main page</Link>
+                    <a href="/admin">Go back to the main page</a>{" "}
                 </p>
             </div>
         );
     }
 }
 
-export default withRouter(AccountPage);
+export default AccountPage;

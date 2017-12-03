@@ -30,6 +30,7 @@ export default ({ children, title = "This is the default title" }) => (
                 href="//cdn.bootcss.com/antd/3.0.0-rc.3/antd.css"
                 rel="stylesheet"
             />
+            <link rel="icon" href="/static/favicon.ico" />
             <link
                 rel="stylesheet"
                 type="text/css"

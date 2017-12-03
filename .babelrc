@@ -9,8 +9,7 @@
                     "@style": "./styles",
                     "@comps": "./components",
                     "@model": "./models",
-                    "@route": "./routes",
-                    "dva": "dva-no-router"
+                    "@route": "./routes"
                 },
                 "cwd": "babelrc"
             }

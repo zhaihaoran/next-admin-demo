@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "@route/router";
 
 class NotFoundPage extends Component {
     render() {
@@ -14,4 +14,4 @@ class NotFoundPage extends Component {
     }
 }
 
-export default withRouter(NotFoundPage);
+export default NotFoundPage;
