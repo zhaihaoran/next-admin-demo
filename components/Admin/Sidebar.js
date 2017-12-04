@@ -25,20 +25,20 @@ const sidebarList = [
     },
     {
         path: "/admin/quiz",
-        name: "users",
+        name: "用户",
         icon: "users",
         isSub: true,
         subMenu: [
             {
-                path: "/admin/order",
+                path: "/admin/oraa",
                 name: "Bill"
             },
             {
-                path: "/admin/users",
+                path: "/admin/bb",
                 name: "Tom"
             },
             {
-                path: "/admin/about",
+                path: "/admin/cc",
                 name: "Alex"
             }
         ]

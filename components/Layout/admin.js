@@ -3,13 +3,13 @@ import Head from "next/head";
 
 import NProgress from "nprogress";
 import Router from "next/router";
+import { Provider } from "mobx-react";
 
 import commonScss from "@style/scss/admin.common.scss";
 
 NProgress.configure({ showSpinner: true });
 
 Router.onRouteChangeStart = url => {
-    console.log(`Loading:${url}`);
     NProgress.set(0.4).start();
 };
 Router.onRouteChangeComplete = () => NProgress.done();
@@ -17,7 +17,7 @@ Router.onRouteChangeError = () => NProgress.done();
 
 import Layout from "@comps/Admin/Layout";
 
-export default ({ children, title = "This is the default title" }) => (
+const Wrapper = ({ children, title = "This is the default title", store }) => (
     <div>
         <Head>
             <title>{title}</title>
@@ -38,6 +38,10 @@ export default ({ children, title = "This is the default title" }) => (
             />
             <style dangerouslySetInnerHTML={{ __html: commonScss }} />
         </Head>
-        <Layout children={children} />
+        <Provider store={store}>
+            <Layout>{children}</Layout>
+        </Provider>
     </div>
 );
+
+export default Wrapper;

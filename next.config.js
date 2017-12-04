@@ -3,8 +3,14 @@ const glob = require("glob");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const { ANALYZE } = process.env;
 
+const isProd = process.env.NODE_EVN === "production";
+
 module.exports = {
+    // CDN配置
+    // assetPrefix: isProd ? 'https://cdn.mydomain.com' : "",
+    // distDir: 'build', 打包目录
     webpack: config => {
+        // webpack 不推荐处理css、less，因为webpack只能处理浏览器端的。最好在babel中处理
         config.devtool = "cheap-module-eval-source-map";
         config.module.rules.push(
             {

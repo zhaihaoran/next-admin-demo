@@ -1,0 +1,12 @@
+{
+    "api": {
+        "GET /api/users": {
+            "response": {
+                "status": 0,
+                "data": {
+                    "name": "box"
+                }
+            }
+        }
+    }
+}

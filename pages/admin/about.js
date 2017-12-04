@@ -1,7 +1,5 @@
 import React from "react";
-import { Provider } from "mobx-react";
 import { initStore } from "@store/admin";
-
 import Layout from "@comps/Layout/admin";
 import OrdersPage from "@comps/Admin/OrdersPage";
 
@@ -20,11 +18,9 @@ export default class extends React.Component {
 
     render() {
         return (
-            <Provider store={this.store}>
-                <Layout title="关于">
-                    <OrdersPage />
-                </Layout>
-            </Provider>
+            <Layout title="关于" store={this.store}>
+                <OrdersPage />
+            </Layout>
         );
     }
 }
