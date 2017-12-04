@@ -1,11 +1,14 @@
 const Koa = require("koa");
 const next = require("next");
 const Router = require("koa-router");
+const mobxReact = require("mobx-react");
 
 const port = parseInt(process.env.PORT, 10) || 9999;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
+
+mobxReact.useStaticRendering(true);
 
 app.prepare().then(() => {
     const server = new Koa();

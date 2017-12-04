@@ -1,4 +1,5 @@
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
+
 import StepDump from "@comps/Step/Step";
 import Sidebar from "@comps/Admin/Sidebar";
 
@@ -6,21 +7,12 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu, Item } = Menu;
 
 class Wrapper extends React.Component {
-    state = {
-        collapsed: false
-    };
-    onCollapse = collapsed => {
-        console.log(collapsed);
-        this.setState({ collapsed });
-    };
     render() {
         const { children } = this.props;
+
         return (
             <Layout className="admin-layout">
-                <Sidebar
-                    collapsed={this.state.collapsed}
-                    onCollapse={this.onCollapse}
-                />
+                <Sidebar />
                 <Layout>
                     <Header style={{ background: "#fff", padding: 0 }} />
                     <Content style={{ margin: "0 16px" }}>

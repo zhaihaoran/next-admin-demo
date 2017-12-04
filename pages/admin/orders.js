@@ -1,10 +1,30 @@
 import React from "react";
-import Layout from "@comps/Layout/admin";
-// context
-import OrdersPage from "@comps/Admin/OrdersPage";
+import { Provider } from "mobx-react";
+import { initStore } from "@store/admin";
 
-export default () => (
-    <Layout title="订单">
-        <OrdersPage />
-    </Layout>
-);
+import Layout from "@comps/Layout/admin";
+import ReturnsPage from "@comps/Admin/ReturnsPage";
+
+export default class extends React.Component {
+    static async getInitialProps({ query, res, req, pathname }) {
+        const isServer = !!req;
+        const store = initStore(isServer);
+        return { pathname, isServer, collapsed: store.collapsed };
+    }
+
+    constructor(props) {
+        super(props);
+        const { pathname, collapsed, isServer } = this.props;
+        this.store = initStore(isServer, collapsed);
+    }
+
+    render() {
+        return (
+            <Provider store={this.store}>
+                <Layout title="订单">
+                    <ReturnsPage />
+                </Layout>
+            </Provider>
+        );
+    }
+}

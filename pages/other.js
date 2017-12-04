@@ -1,34 +1,25 @@
 import React from "react";
-import { bindActionCreators } from "redux";
-import { initStore, startClock, addCount, serverRenderClock } from "../store";
-import withRedux from "next-redux-wrapper";
-import Page from "../components/Page";
+import { Provider } from "mobx-react";
+import { initStore } from "@store/store";
+import Page from "@comps/Page";
 
-class Counter extends React.Component {
-    static getInitialProps({ store, isServer }) {
-        store.dispatch(serverRenderClock(isServer));
-        store.dispatch(addCount());
-        return { isServer };
+export default class Counter extends React.Component {
+    static getInitialProps({ req }) {
+        const isServer = !!req;
+        const store = initStore(isServer);
+        return { lastUpdate: store.lastUpdate, isServer };
     }
 
-    componentDidMount() {
-        this.timer = this.props.startClock();
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timer);
+    constructor(props) {
+        super(props);
+        this.store = initStore(props.isServer, props.lastUpdate);
     }
 
     render() {
-        return <Page title="Other Page" linkTo="/order" />;
+        return (
+            <Provider store={this.store}>
+                <Page title="Other Page" linkTo="/order" />
+            </Provider>
+        );
     }
 }
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addCount: bindActionCreators(addCount, dispatch),
-        startClock: bindActionCreators(startClock, dispatch)
-    };
-};
-
-export default withRedux(initStore, null, mapDispatchToProps)(Counter);

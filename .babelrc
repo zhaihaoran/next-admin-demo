@@ -1,6 +1,7 @@
 {
     "presets": ["next/babel"],
     "plugins": [
+        ["transform-decorators-legacy"],
         [
             "module-resolver",
             {
@@ -8,7 +9,7 @@
                 "alias": {
                     "@style": "./styles",
                     "@comps": "./components",
-                    "@model": "./models",
+                    "@store": "./store",
                     "@route": "./routes"
                 },
                 "cwd": "babelrc"
@@ -20,6 +21,7 @@
                 "extensions": ["css$", "scss$"]
             }
         ]
+
         // [
         //     "import",
         //     {

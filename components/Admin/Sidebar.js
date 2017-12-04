@@ -1,5 +1,7 @@
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
 import PropTypes from "prop-types";
+import { inject, observer } from "mobx-react";
+import { withRouter } from "next/router";
 import ActiveLink from "@comps/Util/ActiveLink";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -7,62 +9,88 @@ const { SubMenu, Item } = Menu;
 
 const sidebarList = [
     {
-        path: "/about",
+        path: "/admin/about",
         name: "首页",
         icon: "pie-chart"
     },
     {
-        path: "/users",
+        path: "/admin/users",
         name: "活动",
         icon: "team"
     },
     {
-        path: "/orders",
+        path: "/admin/orders",
         name: "课程",
         icon: "user"
     },
     {
+        path: "/admin/quiz",
         name: "users",
         icon: "users",
         isSub: true,
         subMenu: [
             {
-                path: "/order",
+                path: "/admin/order",
                 name: "Bill"
             },
             {
-                path: "/users",
+                path: "/admin/users",
                 name: "Tom"
             },
             {
-                path: "/about",
+                path: "/admin/about",
                 name: "Alex"
             }
         ]
     }
 ];
 
+@inject("store")
+@observer
 class Sidebar extends React.Component {
-    static async getInitialProps({ query, res }) {
-        console.log(query);
-    }
-
     static propTypes = {
-        collapsed: PropTypes.bool,
-        onCollapse: PropTypes.func
+        //     collapsed: PropTypes.bool,
+        //     toggle: PropTypes.func
+        // store.collapsed
     };
 
+    handleSidebarLight(path, lists) {
+        const array = [];
+        for (let i = 0; i < lists.length; i++) {
+            const v = lists[i];
+
+            if (!v.isSub && v.path === path) {
+                array.push(v.name);
+            }
+
+            if (v.isSub) {
+                const value = v.subMenu.find(s => s.path === path);
+                value && array.push(value.name);
+            }
+        }
+        console.log(array);
+        return array;
+    }
+
     render() {
-        const { collapsed, onCollapse } = this.props;
+        const { store, router } = this.props;
+        const { collapsed, toggle } = store;
         return (
-            <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+            <Sider collapsible collapsed={collapsed} onCollapse={toggle}>
                 <div className="logo" />
-                <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+                <Menu
+                    theme="dark"
+                    defaultSelectedKeys={this.handleSidebarLight(
+                        router.pathname,
+                        sidebarList
+                    )}
+                    mode="inline"
+                >
                     {sidebarList.map((v, i) => {
                         if (v.isSub) {
-                            const list = v.subMenu.map((cell, i) => (
-                                <Item key={"subitem-" + i}>
-                                    <ActiveLink href={"/admin" + cell.path}>
+                            const list = v.subMenu.map((cell, j) => (
+                                <Item key={cell.name}>
+                                    <ActiveLink href={cell.path}>
                                         {cell.name}
                                     </ActiveLink>
                                 </Item>
@@ -83,8 +111,8 @@ class Sidebar extends React.Component {
                             );
                         } else {
                             return (
-                                <Item key={"sidebar-" + i}>
-                                    <ActiveLink href={"/admin" + v.path}>
+                                <Item key={v.name}>
+                                    <ActiveLink href={v.path}>
                                         <Icon type={v.icon} />
                                         <span>{v.name}</span>
                                     </ActiveLink>
@@ -98,4 +126,4 @@ class Sidebar extends React.Component {
     }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);
