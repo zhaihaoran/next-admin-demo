@@ -1,0 +1,96 @@
+2017-12-05 16:07:27.704 nodejs.ErrorException: Error: error
+    at Object.<anonymous> (d:\project\react\next-admin-demo\server\server.js:35:14)
+    at Module._compile (module.js:641:30)
+    at Object.Module._extensions..js (module.js:652:10)
+    at Module.load (module.js:560:32)
+    at tryModuleLoad (module.js:503:12)
+    at Function.Module._load (module.js:495:3)
+    at Function.Module.runMain (module.js:682:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:613:3
+pid: 18940
+Host: Zhai-PC
+URL: 
+Data: ''
+2017-12-05 16:07:27.704
+
+2017-12-05 16:13:01.997 nodejs.ErrorException: Error: error
+    at Object.<anonymous> (d:\project\react\next-admin-demo\server\server.js:35:14)
+    at Module._compile (module.js:641:30)
+    at Object.Module._extensions..js (module.js:652:10)
+    at Module.load (module.js:560:32)
+    at tryModuleLoad (module.js:503:12)
+    at Function.Module._load (module.js:495:3)
+    at Function.Module.runMain (module.js:682:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:613:3
+pid: 19024
+Host: Zhai-PC
+URL: 
+Data: ''
+2017-12-05 16:13:01.997
+
+2017-12-05 16:16:10.770 nodejs.ErrorException: Error: error
+    at Object.<anonymous> (d:\project\react\next-admin-demo\server\server.js:35:14)
+    at Module._compile (module.js:641:30)
+    at Object.Module._extensions..js (module.js:652:10)
+    at Module.load (module.js:560:32)
+    at tryModuleLoad (module.js:503:12)
+    at Function.Module._load (module.js:495:3)
+    at Function.Module.runMain (module.js:682:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:613:3
+pid: 18600
+Host: Zhai-PC
+URL: 
+Data: ''
+2017-12-05 16:16:10.770
+
+2017-12-05 16:35:22.461 nodejs.ErrorException: Error: error
+    at Object.<anonymous> (d:\project\react\next-admin-demo\server\server.js:35:14)
+    at Module._compile (module.js:641:30)
+    at Object.Module._extensions..js (module.js:652:10)
+    at Module.load (module.js:560:32)
+    at tryModuleLoad (module.js:503:12)
+    at Function.Module._load (module.js:495:3)
+    at Function.Module.runMain (module.js:682:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:613:3
+pid: 20500
+Host: Zhai-PC
+URL: 
+Data: ''
+2017-12-05 16:35:22.461
+
+2017-12-05 16:37:56.919 nodejs.ErrorException: Error: error
+    at Object.<anonymous> (d:\project\react\next-admin-demo\server\server.js:35:14)
+    at Module._compile (module.js:641:30)
+    at Object.Module._extensions..js (module.js:652:10)
+    at Module.load (module.js:560:32)
+    at tryModuleLoad (module.js:503:12)
+    at Function.Module._load (module.js:495:3)
+    at Function.Module.runMain (module.js:682:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:613:3
+pid: 19484
+Host: Zhai-PC
+URL: 
+Data: ''
+2017-12-05 16:37:56.919
+
+2017-12-05 16:39:14.954 nodejs.ErrorException: Error: error
+    at Object.<anonymous> (d:\project\react\next-admin-demo\server\server.js:35:14)
+    at Module._compile (module.js:641:30)
+    at Object.Module._extensions..js (module.js:652:10)
+    at Module.load (module.js:560:32)
+    at tryModuleLoad (module.js:503:12)
+    at Function.Module._load (module.js:495:3)
+    at Function.Module.runMain (module.js:682:10)
+    at startup (bootstrap_node.js:191:16)
+    at bootstrap_node.js:613:3
+pid: 21088
+Host: Zhai-PC
+URL: 
+Data: ''
+2017-12-05 16:39:14.954
+
