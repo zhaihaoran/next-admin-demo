@@ -1,0 +1,28 @@
+{
+    // 项目的介绍信息
+    "info": {
+        "summary": "iqidao 项目接口文档",
+        "description": "接口文档 Powered by puer-mock,author:kabulu"
+    },
+    "api": {
+        "GET /api/users": {
+            // 开启代理,实际上访问的是9999
+            // "proxy": "http://localhost:9999",
+            "response": {
+                "status": 0,
+                "statusInfo": {
+                    "message": "ok"
+                },
+                "data": {
+                    "users|1-20": [
+                        {
+                            "id": "@id",
+                            "name": "@cname",
+                            "date": "@now"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

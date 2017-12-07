@@ -3,11 +3,7 @@ const next = require("next");
 const mobxReact = require("mobx-react");
 const Logger = require("mini-logger");
 // util
-const _ = require("underscore");
-
 const config = require("../config/config");
-
-// config = _.extend({}, config);
 
 const port = config.port;
 const dev = config.env === "local";
@@ -25,7 +21,7 @@ const logger = Logger({
 
 app.renderError((err, req, res) => {
     // 记录错误日志
-    logger.error();
+    logger.error(err);
 });
 
 app.prepare().then(() => {
