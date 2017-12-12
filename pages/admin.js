@@ -9,7 +9,6 @@ export default class extends React.Component {
 		const isServer = !!req;
 		console.log(isServer, "服务器渲染");
 		const queryPath = query ? query.slug : "";
-		console.log(queryPath);
 		const store = initStore(isServer);
 		const route = routes.find(v => v.slug === queryPath);
 
@@ -24,9 +23,11 @@ export default class extends React.Component {
 
 	render() {
 		const { route } = this.props;
+		const Context = route.context;
+		console.log("route---", route);
 		return (
 			<Layout title={route.title} store={this.store}>
-				{route.context}
+				<Context />
 			</Layout>
 		);
 	}

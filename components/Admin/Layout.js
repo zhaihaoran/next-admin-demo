@@ -1,3 +1,4 @@
+import React from "react";
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
 
 import StepDump from "@comps/Step/Step";
@@ -9,7 +10,6 @@ const { SubMenu, Item } = Menu;
 class Wrapper extends React.Component {
 	render() {
 		const { children } = this.props;
-		const WrapperItem = children;
 		return (
 			<Layout className="admin-layout">
 				<Sidebar />
@@ -20,9 +20,7 @@ class Wrapper extends React.Component {
 							<Breadcrumb.Item>User</Breadcrumb.Item>
 							<Breadcrumb.Item>Bill</Breadcrumb.Item>
 						</Breadcrumb>
-						<div id="context">
-							<WrapperItem />
-						</div>
+						<div id="context">{children}</div>
 					</Content>
 					<Footer style={{ textAlign: "center" }}>
 						Ant Design ©2016 Created by Ant UED
