@@ -1,9 +1,10 @@
-const path = require("path");
-const glob = require("glob");
-const webpack = require("webpack");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const path = require('path');
+const glob = require('glob');
+const webpack = require('webpack');
+const {
+	WebpackBundleSizeAnalyzerPlugin
+} = require('webpack-bundle-size-analyzer');
 const { ANALYZE, NODE_EVN } = process.env;
-const isProd = NODE_EVN === "production";
 
 module.exports = {
 	// 是否使用文件系统自带路由
@@ -13,29 +14,28 @@ module.exports = {
 	// distDir: 'build', 打包目录
 	webpack: (config, { buildId, dev }) => {
 		// webpack 不推荐处理css、less，因为webpack只能处理浏览器端的。最好在babel中处理
-		config.devtool = "cheap-module-eval-source-map";
 		config.module.rules.push(
 			{
 				test: /\.(css|scss)/,
-				loader: "emit-file-loader",
+				loader: 'emit-file-loader',
 				options: {
-					name: "dist/[path][name].[ext]"
+					name: 'dist/[path][name].[ext]'
 				}
 			},
 			{
 				test: /\.css$/,
-				use: ["babel-loader", "raw-loader", "postcss-loader"]
+				use: ['babel-loader', 'raw-loader', 'postcss-loader']
 			},
 			{
 				test: /\.s(a|c)ss$/,
 				use: [
-					"babel-loader",
-					"raw-loader",
-					"postcss-loader",
+					'babel-loader',
+					'raw-loader',
+					'postcss-loader',
 					{
-						loader: "sass-loader",
+						loader: 'sass-loader',
 						options: {
-							includePaths: [" ", "node_modules"]
+							includePaths: [' ', 'node_modules']
 								.map(d => path.join(__dirname, d))
 								.map(g => glob.sync(g))
 								.reduce((a, c) => a.concat(c), [])
@@ -44,9 +44,14 @@ module.exports = {
 				]
 			}
 		);
+		if (ANALYZE) {
+			config.plugins.push(
+				new WebpackBundleSizeAnalyzerPlugin('stats.txt')
+			);
+		}
 		config.plugins.push(
 			new webpack.DefinePlugin({
-				"process.env.NODE_ENV": JSON.stringify("production")
+				'process.env.NODE_ENV': JSON.stringify('production')
 			}),
 			new webpack.optimize.UglifyJsPlugin({
 				compress: {
@@ -71,16 +76,6 @@ module.exports = {
 	},
 	webpackDevMiddleware: config => {
 		// Perform customizations to webpack dev middleware config
-		if (ANALYZE) {
-			config.plugins.push(
-				new BundleAnalyzerPlugin({
-					analyzerMode: "server",
-					analyzerPort: 8888,
-					openAnalyzer: true
-				})
-			);
-		}
-		// Important: return the modified config
 		return config;
 	},
 	// 只在dev模式下生效
