@@ -4,33 +4,28 @@ import Layout from "@comps/Head/admin";
 import dynamic from "next/dynamic";
 import Loading from "@comps/Util/Loading";
 
-const DynamicComponent = dynamic(
-	import("../client/components/Admin/AccountPage"),
-	{
-		loading: Loading,
-		ssr: false
-	}
-);
+const DynamicComponent = dynamic(import("@comps/Admin/Table_Ajax"), {
+	loading: Loading
+});
 
 export default class extends React.Component {
-	static async getInitialProps({ query, res, req, pathname }) {
+	static async getInitialProps({ query, res, req }) {
 		const isServer = !!req;
-		console.log(isServer, "服务器渲染");
-		const queryPath = query ? query.slug : "";
+		console.log(query, "query");
+		const entry = isServer ? req.url : "";
 		const store = initStore(isServer);
-
-		return { pathname, isServer, collapsed: store.collapsed };
+		return { isServer, collapsed: store.collapsed };
 	}
 
 	constructor(props) {
 		super(props);
-		const { pathname, collapsed, isServer } = this.props;
+		const { collapsed, isServer } = this.props;
 		this.store = initStore(isServer, collapsed);
 	}
 
 	render() {
 		return (
-			<Layout title="b" store={this.store}>
+			<Layout title="orders" store={this.store}>
 				<DynamicComponent />
 			</Layout>
 		);

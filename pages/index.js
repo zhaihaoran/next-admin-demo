@@ -1,55 +1,52 @@
 import React from "react";
-import Wrapper from "@comps/Head/Common";
-import { Link, Router } from "@route/router";
+import Link from "next/link";
+import Layout from "@comps/Head/common";
 
-export default () => (
-    <Wrapper>
-        <ul>
-            <li>
-                {/* 请求的是/b,显示的是/a */}
-                <Link href="/b" as="/a">
-                    <a>a</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/a" as="/b">
-                    <a>b</a>
-                </Link>
-            </li>
-            <li>
-                <Link href="/admin">
-                    <a>后台</a>
-                </Link>
-            </li>
-            <li>
-                <Link route="blog" params={{ slug: "course" }}>
-                    <a>课程概要</a>
-                </Link>
-            </li>
-            <li>
-                <Link route="blog" params={{ slug: "activity" }}>
-                    <a>活动介绍</a>
-                </Link>
-            </li>
-            <li>
-                <Link route="blog" params={{ slug: "item" }}>
-                    <a>名师介绍</a>
-                </Link>
-            </li>
-            <li>
-                <button
-                    onClick={() => Router.pushRoute("about", { foo: "bar" })}
-                >
-                    About foo bar
-                </button>
-            </li>
-            <li>
-                <button
-                    onClick={() => Router.pushRoute("about", { foo: "baz" })}
-                >
-                    About foo baz
-                </button>
-            </li>
-        </ul>
-    </Wrapper>
+// components
+import CardsContainer from "@comps/Front/Card";
+
+const PostLink = props => (
+	<li>
+		<Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
+			<a>{props.title}</a>
+		</Link>
+	</li>
 );
+
+export default props => {
+	return (
+		<Layout>
+			<CardsContainer />
+			<ul>
+				<li>
+					<Link prefetch href="/b">
+						<a>a</a>
+					</Link>
+				</li>
+				<li>
+					<Link prefetch href="/admin">
+						<a>admin</a>
+					</Link>
+				</li>
+				<li>
+					<Link href="/login">
+						<a>login</a>
+					</Link>
+				</li>
+				<li>
+					<Link href="/register">
+						<a>register</a>
+					</Link>
+				</li>
+				<li>
+					<Link prefetch href="/a">
+						<a>b</a>
+					</Link>
+				</li>
+				<PostLink id="hello-nextjs" title="Hello Next.js" />
+				<PostLink id="learn-nextjs" title="Learn Next.js is awesome" />
+				<PostLink id="deploy-nextjs" title="Deploy apps with Zeit" />
+			</ul>
+		</Layout>
+	);
+};

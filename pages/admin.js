@@ -1,18 +1,22 @@
 import React from "react";
 import { initStore } from "@store/admin";
-import Layout from "@comps/Layout/admin";
-import ReturnsPage from "@comps/Admin/ReturnsPage";
-import routes from "@route/admin";
+import Layout from "@comps/Head/admin";
+import dynamic from "next/dynamic";
+import Loading from "@comps/Util/Loading";
+
+const DynamicComponent = dynamic(
+	import("../client/components/Admin/AccountPage"),
+	{
+		loading: Loading,
+		ssr: false
+	}
+);
 
 export default class extends React.Component {
 	static async getInitialProps({ query, res, req, pathname }) {
 		const isServer = !!req;
-		console.log(isServer, "服务器渲染");
-		const queryPath = query ? query.slug : "";
 		const store = initStore(isServer);
-		const route = routes.find(v => v.slug === queryPath);
-
-		return { pathname, isServer, collapsed: store.collapsed, route };
+		return { pathname, isServer, collapsed: store.collapsed };
 	}
 
 	constructor(props) {
@@ -22,12 +26,9 @@ export default class extends React.Component {
 	}
 
 	render() {
-		const { route } = this.props;
-		const Context = route.context;
-		console.log("route---", route);
 		return (
-			<Layout title={route.title} store={this.store}>
-				<Context />
+			<Layout title="b" store={this.store}>
+				<DynamicComponent />
 			</Layout>
 		);
 	}

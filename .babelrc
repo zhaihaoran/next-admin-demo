@@ -1,34 +1,34 @@
 {
-    "presets": ["next/babel"],
-    "plugins": [
-        ["transform-decorators-legacy"],
-        [
-            "module-resolver",
-            {
-                "root": ["."],
-                "alias": {
-                    "@style": "./styles",
-                    "@comps": "./components",
-                    "@store": "./store",
-                    "@route": "./routes"
-                },
-                "cwd": "babelrc"
-            }
-        ],
-        [
-            "wrap-in-js",
-            {
-                "extensions": ["css$", "scss$"]
-            }
-        ]
-
-        // [
-        //     "import",
-        //     {
-        //         "libraryName": "antd",
-        //         "style": "css" // or 'css'
-        //     }
-        // ]
-    ],
-    "ignore": []
+	"presets": ["next/babel"],
+	"plugins": [
+		["transform-decorators-legacy"],
+		[
+			"module-resolver",
+			{
+				"root": ["."],
+				"alias": {
+					"@style": "./client/styles",
+					"@comps": "./client/components",
+					"@store": "./client/store",
+					"@route": "./routes",
+					"@static": "./static"
+				},
+				"cwd": "babelrc"
+			}
+		],
+		[
+			"wrap-in-js",
+			{
+				"extensions": ["css$", "scss$"]
+			}
+		],
+		[
+			"transform-assets-import-to-string",
+			{
+				"baseDir": "static",
+				"baseUri": "/"
+			}
+		]
+	],
+	"ignore": []
 }
