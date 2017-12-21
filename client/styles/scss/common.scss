@@ -1,7 +1,9 @@
-@import "_base";
-@import "loading";
+@import '_base';
+@import 'loading';
+
 $header_height: 80px;
 $footer_height: 100px;
+
 .tum-header {
     display: flex;
     justify-content: center;

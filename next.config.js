@@ -1,9 +1,7 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
-const {
-	WebpackBundleSizeAnalyzerPlugin
-} = require('webpack-bundle-size-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { ANALYZE, NODE_EVN } = process.env;
 
 module.exports = {
@@ -46,7 +44,11 @@ module.exports = {
 		);
 		if (ANALYZE) {
 			config.plugins.push(
-				new WebpackBundleSizeAnalyzerPlugin('stats.txt')
+				new BundleAnalyzerPlugin({
+					analyzerMode: 'server',
+					analyzerPort: 8888,
+					openAnalyzer: true
+				})
 			);
 		}
 		config.plugins.push(

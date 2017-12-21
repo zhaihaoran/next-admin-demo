@@ -29,6 +29,21 @@
 				"baseUri": "/"
 			}
 		]
+		// [
+		// 	"import",
+		// 	[
+		// 		// {
+		// 		// 	"libraryName": "antd",
+		// 		// 	"libraryDirectory": "es",
+		// 		// 	"style": true
+		// 		// },
+		// 		{
+		// 			"libraryName": "video.js",
+		// 			"libraryDirectory": "dist",
+		// 			"style": "css"
+		// 		}
+		// 	]
+		// ]
 	],
 	"ignore": []
 }
