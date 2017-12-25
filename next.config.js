@@ -73,11 +73,6 @@ module.exports = {
 				}
 			})
 		);
-
-		return config;
-	},
-	webpackDevMiddleware: config => {
-		// Perform customizations to webpack dev middleware config
 		return config;
 	},
 	// 只在dev模式下生效

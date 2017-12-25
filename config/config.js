@@ -14,12 +14,12 @@ module.exports = {
 		host: '127.0.0.1'
 	},
 	cookie: {
-		maxAge: 10 * 60 * 1000, // cookie有效时长
-		expires: new Date('2017-02-15'), // cookie失效时间
+		maxAge: '', // cookie有效时长
+		expires: '', // cookie失效时间
 		path: '', // 写cookie所在的路径
 		domain: '', // 写cookie所在的域名
 		httpOnly: false, // 是否只用于http请求中获取
-		overwrite: false, // 是否允许重写
+		overwrite: true, // 是否允许重写
 		secure: '',
 		sameSite: '',
 		signed: true // 是否加密
