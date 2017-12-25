@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import Layout from '@comps/Head/common';
 
 // components
@@ -26,7 +27,14 @@ export default props => {
 			<ul>
 				<li>
 					<Link href="/login">
-						<a>login</a>
+						<a
+							onMouseEnter={() => {
+								Router.prefetch('/login');
+								console.log('prefetching /login!');
+							}}
+						>
+							login
+						</a>
 					</Link>
 				</li>
 				<li>
