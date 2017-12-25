@@ -1,25 +1,27 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Link from "@comps/Util/ActiveLink";
-import Util from "@comps/Util/utils";
-import { Card, Form, Icon, Input, Button, Checkbox } from "antd";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from '@comps/Util/ActiveLink';
+import Util from '@comps/Util/utils';
+import { Card, Form, Icon, Input, Button, Checkbox } from 'antd';
 
 const FormItem = Form.Item;
 // polyfill fetch
-import "isomorphic-fetch";
+import 'isomorphic-fetch';
 
 class NormalLoginForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
+		console.log(this);
+		// 要用this的话一定要bindthis记得
 		this.props.form.validateFields(async (err, values) => {
 			if (!err) {
-				console.log("Received values of form: ", values);
+				console.log('Received values of form: ', values);
 				// fetch 请求接口
 
-				const res = await fetch("/api/user/login", {
-					method: "POST",
+				const res = await fetch('/api/user/login', {
+					method: 'POST',
 					headers: {
-						"Content-Type": "application/x-www-form-urlencoded"
+						'Content-Type': 'application/x-www-form-urlencoded'
 					},
 					// body 不能使对象，必须是url参数形式传递
 					body: Util.urlEncode(values)
@@ -34,13 +36,16 @@ class NormalLoginForm extends React.Component {
 		const { getFieldDecorator } = this.props.form;
 		return (
 			<Card className="login-card">
-				<Form onSubmit={this.handleSubmit} className="login-form">
+				<Form
+					onSubmit={this.handleSubmit.bind(this)}
+					className="login-form"
+				>
 					<FormItem>
-						{getFieldDecorator("userName", {
+						{getFieldDecorator('userName', {
 							rules: [
 								{
 									required: true,
-									message: "请输入你的姓名!"
+									message: '请输入你的姓名!'
 								}
 							]
 						})(
@@ -48,7 +53,7 @@ class NormalLoginForm extends React.Component {
 								prefix={
 									<Icon
 										type="user"
-										style={{ color: "rgba(0,0,0,.25)" }}
+										style={{ color: 'rgba(0,0,0,.25)' }}
 									/>
 								}
 								placeholder="用户名"
@@ -56,11 +61,11 @@ class NormalLoginForm extends React.Component {
 						)}
 					</FormItem>
 					<FormItem>
-						{getFieldDecorator("password", {
+						{getFieldDecorator('password', {
 							rules: [
 								{
 									required: true,
-									message: "请输入密码"
+									message: '请输入密码'
 								}
 							]
 						})(
@@ -68,7 +73,7 @@ class NormalLoginForm extends React.Component {
 								prefix={
 									<Icon
 										type="lock"
-										style={{ color: "rgba(0,0,0,.25)" }}
+										style={{ color: 'rgba(0,0,0,.25)' }}
 									/>
 								}
 								type="password"
@@ -77,8 +82,8 @@ class NormalLoginForm extends React.Component {
 						)}
 					</FormItem>
 					<FormItem style={{ marginBottom: 0 }}>
-						{getFieldDecorator("remember", {
-							valuePropName: "checked",
+						{getFieldDecorator('remember', {
+							valuePropName: 'checked',
 							initialValue: true
 						})(<Checkbox>保存密码？</Checkbox>)}
 
