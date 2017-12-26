@@ -1,59 +1,53 @@
-import { Layout, Menu, Breadcrumb, Icon } from "antd";
-import PropTypes from "prop-types";
-import { inject, observer } from "mobx-react";
-import { withRouter } from "next/router";
-import ActiveLink from "@comps/Util/ActiveLink";
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
+import { withRouter } from 'next/router';
+import ActiveLink from '@comps/Util/ActiveLink';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu, Item } = Menu;
 
 const sidebarList = [
 	{
-		path: "/about",
-		name: "首页",
-		icon: "pie-chart"
+		path: '/about',
+		name: '首页',
+		icon: 'pie-chart'
 	},
 	{
-		path: "/users",
-		name: "活动",
-		icon: "team"
+		path: '/users',
+		name: '活动',
+		icon: 'team'
 	},
 	{
-		path: "/orders",
-		name: "课程",
-		icon: "user"
+		path: '/orders',
+		name: '课程',
+		icon: 'user'
 	},
 	{
-		path: "/quiz",
-		name: "用户",
-		icon: "users",
+		path: '/quiz',
+		name: '用户',
+		icon: 'users',
 		isSub: true,
 		subMenu: [
 			{
-				path: "/oraa",
-				name: "Bill"
+				path: '/oraa',
+				name: 'Bill'
 			},
 			{
-				path: "/bb",
-				name: "Tom"
+				path: '/bb',
+				name: 'Tom'
 			},
 			{
-				path: "/cc",
-				name: "Alex"
+				path: '/cc',
+				name: 'Alex'
 			}
 		]
 	}
 ];
 
-@inject("store")
+@inject('store')
 @observer
 class Sidebar extends React.Component {
-	static propTypes = {
-		//     collapsed: PropTypes.bool,
-		//     toggle: PropTypes.func
-		// store.collapsed
-	};
-
 	handleSidebarLight(path, lists) {
 		const array = [];
 		for (let i = 0; i < lists.length; i++) {
@@ -76,7 +70,12 @@ class Sidebar extends React.Component {
 		const { store, router } = this.props;
 		const { collapsed, toggle } = store;
 		return (
-			<Sider collapsible collapsed={collapsed} onCollapse={toggle}>
+			<Sider
+				trigger={null}
+				collapsible
+				collapsed={collapsed}
+				onCollapse={toggle}
+			>
 				<div className="logo" />
 				<Menu
 					theme="dark"
