@@ -46,9 +46,6 @@ export default props => {
 						<a>register</a>
 					</Link>
 				</li>
-				<PostLink id="hello-nextjs" title="Hello Next.js" />
-				<PostLink id="learn-nextjs" title="Learn Next.js is awesome" />
-				<PostLink id="deploy-nextjs" title="Deploy apps with Zeit" />
 			</ul>
 			<div className="container">
 				<div className="jiathis_style">

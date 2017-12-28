@@ -1,4 +1,4 @@
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon, Badge } from 'antd';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import { withRouter } from 'next/router';
@@ -48,6 +48,14 @@ const sidebarList = [
 @inject('store')
 @observer
 class Sidebar extends React.Component {
+	state = {
+		dot: true
+	};
+
+	hiddenBadge() {
+		// this.setState({ dot: false });
+	}
+
 	handleSidebarLight(path, lists) {
 		const array = [];
 		for (let i = 0; i < lists.length; i++) {
@@ -76,7 +84,7 @@ class Sidebar extends React.Component {
 				collapsed={collapsed}
 				onCollapse={toggle}
 			>
-				<div className="logo" />
+				<div className="logo" onClick={this.hiddenBadge.bind(this)} />
 				<Menu
 					theme="dark"
 					defaultSelectedKeys={this.handleSidebarLight(
@@ -91,6 +99,10 @@ class Sidebar extends React.Component {
 								<Item key={cell.name}>
 									<ActiveLink href={`/admin${cell.path}`}>
 										{cell.name}
+										<Badge
+											dot={this.state.dot}
+											style={{ marginLeft: 10 }}
+										/>
 									</ActiveLink>
 								</Item>
 							));
