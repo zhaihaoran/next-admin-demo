@@ -4,6 +4,7 @@ import Router from 'next/router';
 import Layout from '@comps/Head/common';
 
 // components
+import Carousel from '@comps/Front/Carousel';
 import CardsContainer from '@comps/Front/Card';
 import SignModal from '@comps/lib/SignModal';
 import TimeLine from '@comps/lib/TimeLine';
@@ -19,12 +20,15 @@ const PostLink = props => (
 export default props => {
 	return (
 		<Layout>
-			<div className="container">
+			<Carousel />
+			<div className="container" style={{ margin: '20px auto' }}>
 				<CardsContainer />
+			</div>
+			<div className="container">
 				<SignModal />
 				<TimeLine />
 			</div>
-			<ul>
+			<ul className="container">
 				<li>
 					<Link href="/login">
 						<a
@@ -46,15 +50,17 @@ export default props => {
 				<PostLink id="learn-nextjs" title="Learn Next.js is awesome" />
 				<PostLink id="deploy-nextjs" title="Deploy apps with Zeit" />
 			</ul>
-			<div className="jiathis_style">
-				<span className="jiathis_txt">分享到：</span>
-				<a className="jiathis_button_qzone">QQ空间</a>
-				<a className="jiathis_button_tsina">新浪微博</a>
-				<a className="jiathis_button_tqq">腾讯微博</a>
-				<a className="jiathis_button_renren">人人网</a>
-				<a className="jiathis_button_kaixin001">开心网</a>
-				<a className="jiathis_button_email">邮件</a>
-				<a className="jiathis_counter_style" />
+			<div className="container">
+				<div className="jiathis_style">
+					<span className="jiathis_txt">分享到：</span>
+					<a className="jiathis_button_qzone">QQ空间</a>
+					<a className="jiathis_button_tsina">新浪微博</a>
+					<a className="jiathis_button_tqq">腾讯微博</a>
+					<a className="jiathis_button_renren">人人网</a>
+					<a className="jiathis_button_kaixin001">开心网</a>
+					<a className="jiathis_button_email">邮件</a>
+					<a className="jiathis_counter_style" />
+				</div>
 			</div>
 			<script
 				type="text/javascript"

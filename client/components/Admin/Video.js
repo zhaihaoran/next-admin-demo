@@ -25,8 +25,17 @@ class VideoWrapper extends React.Component {
 				<video
 					ref={node => (this.videoNode = node)}
 					className="video-js"
+					style={{ width: '100%' }}
 				/>
 				<style dangerouslySetInnerHTML={{ __html: videoCss }} />
+				<style>{`
+					.video-js .vjs-big-play-button {
+						top: 50%;
+						margin-top: -24px;
+						left: 50%;
+						margin-left: -45px;
+					}
+				`}</style>
 			</div>
 		);
 	}

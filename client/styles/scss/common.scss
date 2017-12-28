@@ -5,89 +5,130 @@ $header_height: 80px;
 $footer_height: 100px;
 
 .tum-header {
-    display: flex;
-    justify-content: center;
-    background: #fff;
-    height: $header_height;
-    .logo {
-        flex: 1;
-    }
-    .main-nav {
-        display: flex;
-        flex: 5;
-        justify-content: flex-end;
-        .nav-menu {
-            .item {
-                line-height: $header_height;
-                margin-top: -2px;
-            }
-        }
-    }
+	display: flex;
+	justify-content: center;
+	background: #fff;
+	height: $header_height;
+	.logo {
+		flex: 1;
+	}
+	.main-nav {
+		display: flex;
+		flex: 5;
+		justify-content: flex-end;
+		.nav-menu {
+			.item {
+				line-height: $header_height;
+				margin-top: -2px;
+			}
+		}
+	}
 }
 
 .tum-footer {
-    display: flex;
-    justify-content: center;
-    background: #fff;
-    height: $footer_height;
+	display: flex;
+	justify-content: center;
+	background: #fff;
+	height: $footer_height;
 }
 
 // sign
 .sign-container {
-    display: flex; // 100vh 相当于视口的高度
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    .register-card {
-        width: 500px;
-    }
+	display: flex; // 100vh 相当于视口的高度
+	min-height: 100vh;
+	justify-content: center;
+	align-items: center;
+	.register-card {
+		width: 500px;
+	}
 }
 
 // login modal
 .login-form {
-    max-width: 300px;
+	max-width: 300px;
 }
 
 .login-form-forgot {
-    float: right;
+	float: right;
 }
 
 .login-form-button {
-    width: 100%;
+	width: 100%;
 }
 
 // footer
 .footer-logo,
 .footer-qrcode {
-    flex: 1;
+	flex: 1;
 }
 
 .footer-content {
-    flex: 6;
-    .footer-item {
-        height: 100%;
-        align-items: center;
-        display: flex;
-        flex-flow: row;
-        li {
-            text-align: center;
-            flex: 1;
-        }
-    }
+	flex: 6;
+	.footer-item {
+		height: 100%;
+		align-items: center;
+		display: flex;
+		flex-flow: row;
+		li {
+			text-align: center;
+			flex: 1;
+		}
+	}
 }
 
 .speaker-container {
-    display: flex;
-    justify-content: center;
-    .card-item {
-        max-width: 240px;
-    }
+	display: flex;
+	justify-content: center;
+	.card-item {
+		max-width: 240px;
+	}
 }
 
 .layout {
-    min-height: 100vh;
-    flex-direction: column;
-    .tum-content {
-        flex-grow: 1;
-    }
+	min-height: 100vh;
+	flex-direction: column;
+	.tum-content {
+		flex-grow: 1;
+	}
+}
+
+// carousel
+.tumeng-carousel {
+	.slick-slide {
+		text-align: center;
+		height: 400px;
+		line-height: 400px;
+		background: #364d79;
+		overflow: hidden;
+	}
+	.slick-slide h3 {
+		color: #fff;
+	}
+	.carousel-image {
+		max-height: 100%;
+		margin: 0 auto;
+	}
+
+	.carousel-tooltip {
+		display: none;
+		position: absolute;
+		top: 280px;
+		z-index: 4;
+		width: 100%;
+		height: 0;
+		justify-content: space-between;
+		align-items: center;
+
+		.carousel-item {
+			width: 50px;
+			height: 100px;
+			background: red;
+		}
+	}
+
+	&:hover {
+		.carousel-tooltip {
+			display: flex;
+		}
+	}
 }
